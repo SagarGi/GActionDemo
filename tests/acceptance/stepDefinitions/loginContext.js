@@ -16,3 +16,11 @@ When(
 Then("the user should be able to acces his account", async function () {
   await loginPage.navigateToMainPage();
 });
+
+// joomla installation steps
+Given(
+  "the user has broswed to the joomla installation page",
+  async function () {
+    await page.goto("http://localhost:8080/");
+  }
+);

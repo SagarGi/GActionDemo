@@ -7,3 +7,7 @@ Feature: Login
         Given the user has browsed to login page
         When the user logs in with valid username "standard_user" and valid password "secret_sauce"
         Then the user should be able to acces his account
+
+    Scenario: Navigate To Joomla installation
+        Given the user has broswed to the joomla installation page
+        
