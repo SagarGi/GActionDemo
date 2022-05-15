@@ -17,6 +17,9 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Run joomla on docker
+    - run: docker-compose up
+
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -25,3 +28,6 @@ jobs:
     - run: docker-compose  up
     - run: npm ci
     - run: npm run test:e2e tests/acceptance/features
+
+    
+
