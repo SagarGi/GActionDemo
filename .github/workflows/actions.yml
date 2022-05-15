@@ -11,12 +11,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [14.x]
-
     steps:
-    - name: Chekout 
+    - name: Chekout code
       uses: actions/checkout@v3
 
     - name: Start Containers 
@@ -29,6 +25,9 @@ jobs:
     
     - name: Install dependencies
       run: npm ci
+    
+    - name: Install joomla with creation of super user
+      run: npm run install-joomla tests/acceptance/initialSetup/installJoomla.feature
 
     - name: Run tests
       run: npm run test:e2e tests/acceptance/features 
