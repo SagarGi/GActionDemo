@@ -1,28 +1,30 @@
 class LoginPage {
   constructor() {
-    this.websiteURL = "https://saucedemo.com";
-    this.usernameSelector = "#user-name";
-    this.passwordSelector = "#password";
-    this.loginButtonSelector = "#login-button";
-    this.appLogoSelector = ".app_logo";
+    this.websiteURL = "http://localhost:8080/administrator";
+    this.usernameSelector = "#mod-login-username";
+    this.passwordSelector = "#mod-login-password";
+    this.loginButtonSelector =
+      "//button[@class= 'btn btn-primary btn-block btn-large login-button']";
+    this.appLogoSelector = '//h1[@class="page-title"]';
   }
 
   async navigateToLoginPage() {
     await page.goto(this.websiteURL);
+    const loginPageLocator = page.locator(
+      '//img[@src= "/administrator/templates/isis/images/joomla.png"]'
+    );
+    await expect(loginPageLocator).toBeVisible();
   }
 
   async login(username, password) {
-    const usernameLocator = page.locator(this.usernameSelector);
-    await usernameLocator.fill(username);
-    const passwordLocator = page.locator(this.passwordSelector);
-    await passwordLocator.fill(password);
-    const loginButtonLocator = page.locator(this.loginButtonSelector);
-    await loginButtonLocator.click();
+    await page.fill(this.usernameSelector, username);
+    await page.fill(this.passwordSelector, password);
+    await page.locator(this.loginButtonSelector).click();
   }
 
   async navigateToMainPage() {
-    const logoLocator = page.locator(this.appLogoSelector);
-    await expect(logoLocator).toBeVisible();
+    const titleLocator = await page.locator(this.appLogoSelector);
+    await expect(titleLocator).toBeVisible();
   }
 }
 

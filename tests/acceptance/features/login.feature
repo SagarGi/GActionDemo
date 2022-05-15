@@ -5,9 +5,6 @@ Feature: Login
 
     Scenario: Login with valid credential
         Given the user has browsed to login page
-        When the user logs in with valid username "standard_user" and valid password "secret_sauce"
-        Then the user should be able to acces his account
-
-    Scenario: Navigate To Joomla installation
-        Given the user has broswed to the joomla installation page
+        When the user logs in with valid username "lambu" and valid password "12345"
+        Then the user should be able to access his account
         
