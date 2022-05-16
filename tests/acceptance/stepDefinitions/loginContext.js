@@ -16,3 +16,9 @@ When(
 Then("the user should be able to access his account", async function () {
   await loginPage.navigateToMainPage();
 });
+
+Given("the user has logged in using webUI", async function () {
+  await loginPage.navigateToLoginPage();
+  await loginPage.login("lambu", "12345");
+  await loginPage.navigateToMainPage();
+});
