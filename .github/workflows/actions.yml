@@ -30,7 +30,7 @@ jobs:
       run: npm run install-joomla tests/acceptance/initialSetup/installJoomla.feature
 
     - name: Install Dropbox on joomla for running e2e tests
-      run: npm run install-joomla tests/acceptance/initialSetup/dropBoxInstallation.feature
+      run: npm run install-dropbox tests/acceptance/initialSetup/dropBoxInstallation.feature
 
     - name: Run tests
       run: npm run test:e2e tests/acceptance/features 
