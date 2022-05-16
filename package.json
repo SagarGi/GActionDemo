@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test:e2e": "cucumber-js --require cucumber.config.js --require tests/acceptance/stepDefinitions/**/*.js --format @cucumber/pretty-formatter",
-    "install-joomla": "cucumber-js --require cucumber.config.js --require tests/acceptance/stepDefinitions/installJoomlaContext.js --format @cucumber/pretty-formatter"
+    "install-joomla": "cucumber-js --require cucumber.config.js --require tests/acceptance/stepDefinitions/installJoomlaContext.js --format @cucumber/pretty-formatter",
+    "install-dropbox": "cucumber-js --require cucumber.config.js --require tests/acceptance/stepDefinitions/**/*.js --format @cucumber/pretty-formatter"
   },
   "repository": {
     "type": "git",

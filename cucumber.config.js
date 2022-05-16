@@ -7,13 +7,20 @@ const {
 } = require("@cucumber/cucumber");
 const { chromium } = require("playwright");
 const { expect } = require("@playwright/test");
+const util = require("util");
+const {
+  getVisibility,
+  getInnerText,
+  getAlphaNumeric,
+  clickOnElement,
+} = require("./utils.js");
 
 global.expect = expect;
 setDefaultTimeout(1000 * 1000);
 
 BeforeAll(async function () {
   global.browser = await chromium.launch({
-    slowMo: 500,
+    slowMo: 1000,
     channel: "chrome",
   });
 });
@@ -31,3 +38,9 @@ After(async function () {
   await global.page.close();
   await global.context.close();
 });
+
+global.format = util.format;
+global.getInnerText = getInnerText;
+global.getVisibility = getVisibility;
+global.clickOnElement = clickOnElement;
+global.getAlphaNumeric = getAlphaNumeric;
