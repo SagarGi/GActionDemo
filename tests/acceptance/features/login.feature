@@ -5,6 +5,6 @@ Feature: Login
 
     Scenario: Login with valid credential
         Given the user has browsed to login page
-        When the user logs in with valid username "lambu" and valid password "1234"
+        When the user logs in with valid username "lambu" and valid password "12345"
         Then the user should be able to access his account
         
